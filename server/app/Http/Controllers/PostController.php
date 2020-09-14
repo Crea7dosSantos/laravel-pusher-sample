@@ -39,7 +39,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $posts = $this->service->addPost($request);
-        return view('welcom', $posts);
+        \Log::debug($request);
+
+        $this->service->addPost($request);
+        return redirect()->route('post.index');
     }
 }

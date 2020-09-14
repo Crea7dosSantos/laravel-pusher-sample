@@ -26,6 +26,6 @@ class PostService
      */
     public function addPost(Request $request)
     {
-        //
+        Post::create($request->all());
     }
 }
