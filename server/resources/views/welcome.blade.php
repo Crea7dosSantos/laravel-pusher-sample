@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>laravel-pusher-sample</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 </head>
 
 <body>
@@ -23,6 +25,18 @@
         </form>
     </div>
     <script>
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher(@json($pusher_app_key), {
+            cluster: @json($pusher_app_cluster)
+        });
+
+        var channel = pusher.subscribe('post-added-channel')
+        channel.bind('App\\Events\\PostAdded', function(data) {
+            console.log('received a message')
+            console.log(data)
+            alert(JSON.stringify(data))
+        });
     </script>
 </body>
 

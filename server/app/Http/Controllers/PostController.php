@@ -28,7 +28,12 @@ class PostController extends Controller
     public function index()
     {
         $posts = $this->service->getPosts();
-        return view('welcome', ['posts' => $posts]);
+
+        return view('welcome', [
+            'posts' => $posts,
+            'pusher_app_key' => env('MIX_PUSHER_APP_KEY'),
+            'pusher_app_cluster' => env('MIX_PUSHER_APP_CLUSTER')
+        ]);
     }
 
     /**
