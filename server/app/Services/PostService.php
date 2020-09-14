@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Events\PostAdded;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -26,6 +27,7 @@ class PostService
      */
     public function addPost(Request $request)
     {
-        Post::create($request->all());
+        $new_post = Post::create($request->all());
+        event(new PostAdded($new_post));
     }
 }
