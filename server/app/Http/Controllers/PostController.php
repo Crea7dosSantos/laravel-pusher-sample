@@ -39,8 +39,6 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        \Log::debug($request);
-
         $this->service->addPost($request);
         return redirect()->route('post.index');
     }
