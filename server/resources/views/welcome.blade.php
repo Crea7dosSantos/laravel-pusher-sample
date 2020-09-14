@@ -26,8 +26,8 @@
     <script>
         Pusher.logToConsole = true;
 
-        var pusher = new Pusher('1b917830469415ec57ef', {
-            cluster: 'ap3'
+        var pusher = new Pusher(@json($pusher_app_key), {
+            cluster: @json($pusher_app_cluster)
         });
 
         var channel = pusher.subscribe('my-channel')
