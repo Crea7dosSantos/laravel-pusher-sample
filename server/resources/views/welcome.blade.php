@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>laravel-pusher-sample</title>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 </head>
 
 <body>
@@ -23,6 +24,16 @@
         </form>
     </div>
     <script>
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher(@json($pusher_app_key), {
+            cluster: @json($pusher_app_cluster)
+        });
+
+        var channel = pusher.subscribe('my-channel')
+        channel.bind('my-event', function(data) {
+            alert(JSON.stringify(data))
+        });
     </script>
 </body>
 
