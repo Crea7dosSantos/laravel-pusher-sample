@@ -31,8 +31,8 @@ class PostController extends Controller
 
         return view('welcome', [
             'posts' => $posts,
-            'pusher_app_key' => env('MIX_PUSHER_APP_KEY'),
-            'pusher_app_cluster' => env('MIX_PUSHER_APP_CLUSTER')
+            'pusher_app_key' => env('PUSHER_APP_KEY'),
+            'pusher_app_cluster' => env('PUSHER_APP_CLUSTER')
         ]);
     }
 
