@@ -20,11 +20,10 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: db-host
+    container_name: laravel_pusher_sample_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: laravel_pusher_sample
-      MYSQL_USER: root
+      MYSQL_DATABASE: pusher-app
       MYSQL_PASSWORD: root
       TZ: 'Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
